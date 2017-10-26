@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')    
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')    
+    meta(name='viewport', content='width=device-width, initial-scale=1')    
+    meta(name='description', content='')    
+    meta(name='author', content='')    
+    title SPLAIN - APPLICANT WORK FLOW
+    // Bootstrap Core CSS
+    link(href='/candidate/css/bootstrap.min.css', rel='stylesheet', type='text/css')    
+    // Custom Fonts
+    link(href='/candidate/css/font-awesome.min.css', rel='stylesheet', type='text/css')    
+    // PNotify CSS
+    link(href='/candidate/css/pnotify.custom.min.css', rel='stylesheet', type='text/css')
+    // Custom CSS
+    link(href='/candidate/css/applicant.css', rel='stylesheet', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')      
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    // jQuery
+    script(src='/candidate/js/jquery.min.js',language='javascript',type='text/javascript')
+    script(type='text/javascript',language='javascript',src='/candidate/js/applicant_config.js')
+    //Browser Version Collection
+    script(type='text/javascript',language='javascript',src='/candidate/js/jquery.mb.browser.js')
+    // Bootstrap Core JavaScript
+    script(src='/candidate/js/bootstrap.min.js',language='javascript',type='text/javascript')
+    // OPENTOK Library
+    script(src='https://static.opentok.com/v2.8/js/opentok.js',language='javascript',type='text/javascript')    
+    // OpenTok Integration & Other Events handling
+    script(src='/candidate/js/applicant_operations.js',language='javascript',type='text/javascript')
+    // PNotification Library
+    script(src='/candidate/js/pnotify.custom.min.js',language='javascript',type='text/javascript')
+  body
+    header#header.navbar.navbar-inverse.navbar-fixed-top.wet-asphalt(style='background-color: #114b9f;border-bottom: 5px solid #f05922;padding:0px;', role='banner')
+    section.container-fluid
+      #main-div.row
+        #leftDiv.col-sm-3.col-md-3.col-lg-3(style='background-color: white;border-right:1px solid lightgray;text-align: center;')        
+          .col-lg-offset-2.col-lg-8.col-md-offset-2.col-md-8.col-sm-offset-2.col-sm-8.text-center.mckessonLogo
+            img#logo.img-responsive(src='/candidate/images/McKesson_Color_Logo.PNG')    
+          .col-lg-12.col-md-12.col-sm-12.col-xs-6.text-center.timeCountdown            
+            canvas.loader2(width='150', height='150')
+            div
+              label Time                   
+          .col-lg-12.col-md-12.col-sm-12.col-xs-6.text-center.progressCountdown
+            canvas.loader3(width='150', height='150')
+            div
+              label Overall Progress
+        #subscribers.col-sm-9.col-md-9.col-lg-9(align='center', style='background-color: none;')                  
+            #clientdiv
+                video#clientVideo(autoplay, style='object-fit:contain;width:100%; height: 100%; position: relative;top: 50%;transform: translateY(-50%);')
+                    source(src="")            
+                #publisher(style='display:none')
+                .eachQuestion.blink_me.rightTimer &nbsp;
+                .eachQuestion
+                    label.rightText(style='font-size:18px;margin-left:-10px;margin-top: 40px;')
+                #controlsButton.col-xs-12(style='margin-top: -5px;height:50px;background-color:#4d4d4d;bottom: 0px; position:absolute;z-index:99999;')
+                    a.replay.btn-color(href='#')
+                      button REPLAY            
+                    a.done.btn-color(href='#')
+                      button DONE            
+                    a.next.btn-color(href='#')
+                      button NEXT            
+            #selfvideo.video-element
+                video#selfsubscribervideo(autoplay, style="display:none;")
+                    source(src="")
+                    // Self Video
+                #selfpublisher(style='width:150px; height:150px; position:absoute; z-index:99999999;top:1.5%;left:1.5%')
+            #recordingdelay.text-center(style='position:absolute; top:35%; left:50%;z-index:99999999999;display:none; transform: translateX(-50%);')
+                p(style='font:18pt sans-serif') Start Recording your answer in
+                canvas.loader4(width='150', height='150')
+            #notification(style='position:absolute; bottom:70px; left:50%;z-index:99999999999;display:block; transform: translateX(-50%);color: #31708f;background-color: #d9edf7; padding:10px 25px 5px; border: 2px solid #bce8f1; border-radius: 10px; box-shadow: 0 6px 28px 0 rgba(0,0,0,.2);')
+                //span.glyphicon.glyphicon-info-sign
+                p(style='font:12pt sans-serif;font-weight:bold;') Thank you.
+                p(style='font:11pt sans-serif;') Press Next to Continue.
+    #postedvalues(style='display:none;')
+        applicant #{applicantid}
+        job #{jobid}
+        evaluation #{evaluationid}
+        questions #{questions}    

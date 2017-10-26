@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+ export STORMPATH_API_KEY_ID=53CGH85H8FRVUU0H6VNTNW6RG
+ export STORMPATH_API_KEY_SECRET=WHv8wLKxX7w+BCOXXybJzZVRlS27QyhCMoXYAxA8W9M
+ export STORMPATH_APP_HREF=https://api.stormpath.com/v1/applications/6R8V7KrnW5HgUwsR3UqgR6
+ export EXPRESS_SECRET=zoom
+ export OPENTOK_API_KEY=45558352
+ export OPENTOK_API_SEC=f60f53c1b05729ad0511a456e13c25c7dcba05e2
+npm start

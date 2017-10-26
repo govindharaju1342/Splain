@@ -1,0 +1,39 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Evaluation Info
+          .col-lg-12.col-lg-offset-10
+            button.btn.btn-success.btn-sm.add-manage-button#adduserBut(type='button', onclick="gotoAddEvaluation()") Add Evaluation
+          table.table.table-striped
+            thead
+              tr
+                th Evaluation Name
+                th Created on
+                th Update on
+                th.actiontd Action
+            tbody 
+              - var n = 0
+              each key in json
+                if key.create_on    
+                  - var createMonth = parseInt(new Date(key.create_on).getMonth())+1;
+                  - var createDateTime = new Date(key.create_on).getDate()+'-'+ createMonth +'-'+new Date(key.create_on).getFullYear()+' '+new Date(key.create_on).getHours()+':'+new Date(key.create_on).getMinutes();
+                else  
+                  - var createDateTime="-";
+                  
+                if key.updated_on    
+                  - var updateMonth = parseInt(new Date(key.updated_on).getMonth())+1;
+                  - var updateDateTime = new Date(key.updated_on).getDate()+'-'+ updateMonth +'-'+new Date(key.updated_on).getFullYear()+' '+new Date(key.updated_on).getHours()+':'+new Date(key.updated_on).getMinutes();
+                else  
+                  - var updateDateTime="-";  
+                tr
+                  td #{key.eval_name} 
+                  td #{createDateTime} 
+                  td #{updateDateTime} 
+                  td.actiontd(onclick="gotoEditEvaluation('#{key._id['$oid']}')")
+                    span.glyphicon.glyphicon-pencil.cursor(title='Edit Evaluation')  

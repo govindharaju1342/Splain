@@ -1,0 +1,56 @@
+extends layout
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm
+          //- nav.navbar.navbar-default
+          //-   .container-fluid 
+          //-     ul.nav.navbar-nav
+          //-       li 
+          //-         a(href='/adduser',role='button') Add Users
+          //-       li 
+          //-         a(href='/viewuser',role='button') View Users
+          //-       li
+          //-         a(href='/removeuser',role='button') Remove Users 
+
+          .adduser.well-nm 
+              form.bs-example.form-horizontal(method='post', action='')
+                fieldset
+                  legend New User Account
+                  if error
+                    .alert.alert-dismissable.alert-danger.register-fail
+                    button.close(data-dismiss='alert', type='button') &times;
+                    p.
+                      #{error}
+                  //- .alert.alert-dismissable.alert-info
+                  //-   button.close(data-dismiss='alert', type='button') &times;
+                  //-   strong NOTE:&nbsp;
+                  //-   Created users will be assigned to your group . 
+                  .form-group
+                    label.col-lg-4.control-label(for='username') Username
+                    .col-lg-4
+                      input#username.form-control(name='username', type='text', placeholder='Username', autofocus)
+                  .form-group
+                    label.col-lg-4.control-label(for='email') Email
+                    .col-lg-4
+                      input#email.form-control(name='email', type='email', placeholder='Email')
+                  .form-group
+                    label.col-lg-4.control-label(for='givenName') First Name
+                    .col-lg-4
+                      input#givenName.form-control(name='givenName', type='text', placeholder='First Name')
+                  .form-group
+                    label.col-lg-4.control-label(for='surname') Last Name
+                    .col-lg-4
+                      input#surname.form-control(name='surname', type='text', placeholder='Last Name')
+                  .form-group
+                    label.col-lg-4.control-label(for='password') Password
+                    .col-lg-4
+                      input#password.form-control(name='password', type='text', placeholder='Password')
+                  .form-group
+                    .col-lg-10.col-lg-offset-4
+                      button.btn.btn-success(type='submit') Submit 
+

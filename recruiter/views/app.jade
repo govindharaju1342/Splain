@@ -1,0 +1,26 @@
+extends layout
+
+block body
+     .dashboard
+      .row
+        #nav-container.col-lg-2
+         include leftnavigation.jade
+        #data-container.col-lg-10
+          .well-nm
+            .container
+              .adduser.well-nm
+                form.bs-example.form-horizontal(method='post', action='')
+                  fieldset
+                    legend Test
+                    .form-group
+                      label.col-lg-1.control-label(for='bgcolor') test
+                      .col-lg-4
+                        input#xxx.form-control(name='bgcolor', type='color', placeholder='Color code')
+                    .form-group
+                      label.col-lg-1.control-label(for='logo') URL
+                      .col-lg-4
+                        input#xxx.form-control(name='logo', type='url', placeholder=' URL')
+                    .form-group
+                      .col-lg-10.col-lg-offset-4
+                        a.btn.btn-success(type='submit') Submit
+

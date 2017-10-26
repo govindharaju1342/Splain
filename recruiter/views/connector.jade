@@ -1,0 +1,37 @@
+extends layout
+
+block body
+
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        div#myModal.modal.fade(role="dialog")
+          .modal-dialog
+            .modal-content 
+              .modal-body
+                p
+                  h3.modal-title(style="text-align:center") Coming soon
+              .modal-footer(style="text-align:center")
+                button.btn.btn-default(type='button', data-dismiss="modal") Close
+        .row
+          .col-lg-3
+            img(src='/images/logo1.jpg')
+          .col-lg-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet pretium nunc, faucibus hendrerit lorem malesuada vitae. In vestibulum pharetra ipsum, non sodales leo pellentesque id. Fusce at facilisis orci, eget bibendum ante. Nunc eu blandit neque. Aenean ut neque nec massa imperdiet egestas.<br />
+            button.btn.btn-success.btn-sm.add-manage-button.connector-btn(type='button', data-toggle="modal" data-target="#myModal") Configure
+          .col-lg-3
+            img(src='/images/logo1.jpg') 
+          .col-lg-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet pretium nunc, faucibus hendrerit lorem malesuada vitae. In vestibulum pharetra ipsum, non sodales leo pellentesque id. Fusce at facilisis orci, eget bibendum ante. Nunc eu blandit neque. Aenean ut neque nec massa imperdiet egestas.<br />
+            button.btn.btn-success.btn-sm.add-manage-button.connector-btn(type='button', data-toggle="modal" data-target="#myModal") Configure
+        .row
+          .col-lg-3
+            img(src='/images/logo1.jpg')
+          .col-lg-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet pretium nunc, faucibus hendrerit lorem malesuada vitae. In vestibulum pharetra ipsum, non sodales leo pellentesque id. Fusce at facilisis orci, eget bibendum ante. Nunc eu blandit neque. Aenean ut neque nec massa imperdiet egestas.<br />
+            button.btn.btn-success.btn-sm.add-manage-button.connector-btn(type='button', data-toggle="modal" data-target="#myModal") Configure            
+          .col-lg-3
+            img(src='/images/logo1.jpg') 
+          .col-lg-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet pretium nunc, faucibus hendrerit lorem malesuada vitae. In vestibulum pharetra ipsum, non sodales leo pellentesque id. Fusce at facilisis orci, eget bibendum ante. Nunc eu blandit neque. Aenean ut neque nec massa imperdiet egestas.<br />
+            button.btn.btn-success.btn-sm.add-manage-button.connector-btn(type='button', data-toggle="modal" data-target="#myModal") Configure 
+        
+          

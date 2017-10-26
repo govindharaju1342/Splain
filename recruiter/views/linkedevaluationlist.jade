@@ -1,0 +1,23 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Linked Evaluation Info
+          .col-lg-12.col-lg-offset-10
+            button.btn.btn-success.btn-sm.add-manage-button#adduserBut(type='button', onclick="gotoAddlinkeva()") Link Evaluation
+          table.table.table-striped
+            thead
+              tr
+                th Evaluation Name 
+                th Action 
+            tbody  
+              each key in evJson    
+                tr
+                  td #{key.eval_name}
+                  td.actiontd(onclick="gotoEditlinkEvaluation('#{key._id['$oid']}')")
+                    span.glyphicon.glyphicon-pencil.cursor(title='Edit Linked Evaluation')

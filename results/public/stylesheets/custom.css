@@ -1,0 +1,378 @@
+ body,
+ html,
+ .container-fluid {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: Helvetica;
+     font-size:14px;
+ }
+ .Header-area {
+     width: 100%;
+ }
+ .Qustion-area {
+     width: 30%;
+     float: left;
+     padding: 0px;
+ }
+ .Video-area {
+     overflow: hidden!important;
+     width: 70%;
+ }
+ .Qustion-video {
+     overflow: hidden!important;
+     height: 93%;
+ }
+ .footer {
+     width: 100%;
+     height: 7%;
+     background-color: #383838;
+     color: white;
+     font-size: 2vmin;
+     display: flex;
+    align-items: center;
+    padding-left: 1%;
+ }
+ .Interestmain{
+     padding-left: 5%;
+ }
+ div.QustionTitle:hover{
+    background-color:#eee!important;
+}
+ @media (max-width: 767px) {
+     .Qustion-area {
+         height: 75%;
+         width: 100%;
+         float: left;
+     }
+     .Video-area {
+         overflow: hidden!important;
+         height: 100%;
+         width: 100%;
+     }
+ }
+ @media(min-width:991px) and (max-width:1348px) {
+    
+ }
+ @media(min-width:768px) and (max-width:991px) {
+     .applicantHeader, .TextAverageStarsMain, .AverageStartsText {
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+     .Video-area {
+         width: 60%!important;
+         overflow: hidden!important;
+     }
+     .Qustion-area {
+         width: 40%!important;
+     }
+ }
+ @media(min-width:544px) and (max-width:767px) {
+     .applicantHeader, .TextAverageStarsMain, .AverageStartsText {
+         padding-left: 0px;
+         padding-right: 0px;
+         text-align: left;
+     }
+     .applicantHeader {
+         padding-top: 0px!important;
+     }
+     .AverageStartsText {
+         width: 40%!important;
+     }
+     .AverageStartslable {
+         width: 60%!important;
+     }
+     .logoimg {
+         padding-top: 15%!important;
+     }
+     .headermainleftpart{
+         max-height: 150px!important;
+     }
+     .applicantHeadermain{
+         padding-top: 1%!important;
+     }
+     .TextAverageStarsMain{
+          padding-top: 2%!important;
+          text-align: center;
+     }
+    
+ }
+ @media(min-width:621px) and (max-width:767px) {
+/*     .logoimg {
+         padding-top: 5%!important;
+     }
+     .headermainleftpart{
+         height: auto!important;
+     }
+     .applicantHeadermain{
+         padding-top: 1%!important;
+     }
+     .TextAverageStarsMain{
+          padding-top: 2%!important;
+     }*/
+ }
+ @media(min-width:544px) and (max-width:598px) {
+     .headermainleftpart{
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+ }
+ @media(min-width:417px) and (max-width:547px) {
+     .headermain {
+         padding-left: 0px;
+         padding-right: 0px;
+     }     
+ }
+ @media(min-width:367px) and (max-width:416px) {
+     .headermain {
+         padding-left: 0px;
+         padding-right: 0px;
+     }     
+ }
+ @media (min-width: 437px) and (max-width: 544px) {
+     .imgdata,
+     .applicantHeadermain,
+     .TextAverageStarsMain {
+         width: 100%!important;
+     }
+     
+     .logoimg {
+        // width: 100%!important;
+     }
+     .InterestText {
+         width: 35%!important;
+         text-align: center;
+     }
+     .AverageStartsText {
+         text-align: center;
+     }
+     .Interestmain {
+         margin-left: 0%;
+     }
+ }
+ @media (min-width: 350px) and (max-width: 436px) {
+     .imgdata,
+     .applicantHeadermain,
+     .TextAverageStarsMain {
+         width: 100%!important;
+     }
+     .logoimg {
+        // width: 100%!important;
+     }
+     .applicantHeader {
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+     .TextAverageStarsMain,
+     .AverageStartsText {
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+     .InterestText {
+         width: 35%!important;
+         text-align: center;
+     }
+     .imgdata {
+         padding-left: 20%;
+     }
+     .AverageStartsText {
+         text-align: center;
+     }
+     .Interestmain {
+         margin-left: 0%;
+     }
+ }
+ @media (min-width: 350px) and (max-width: 389px) {
+     .headermainleftpart,.headermain{
+         padding: 0px;
+     }
+ }
+ @media (max-width: 349px) {
+     .imgdata,
+     .applicantHeadermain,
+     .TextAverageStarsMain,
+     .AverageStartsText {
+         width: 100%!important;
+         text-align: center;
+     }
+     .logoimg {
+        // width: 100%!important;
+     }
+     .applicantHeader {
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+     .TextAverageStarsMain,
+     .AverageStartsText {
+         padding-left: 0px;
+         padding-right: 0px;
+     }
+     .InterestText {
+         width: 40%!important;
+     }
+     .imgdata {
+         padding-left: 20%;
+     }
+     .headermainleftpart{
+         width: 100%!important;
+         height: auto!important;
+     }
+     .logoimg,.Interestmain{
+         padding-top: 5%!important;
+     }
+     .logoimg{
+         max-height: 150px!important;
+     }
+ }
+ video {
+     width: 100%;
+     height: 100%;
+ }
+ .quspanel {
+     /*min-height: 90px;*/
+     border-top: 1px solid #DDDDDD;
+     border-bottom: 1px solid #DDDDDD;
+     border-left: 1px solid #DDDDDD;
+     margin-bottom: 3px;
+     padding-left: 0px;
+        padding-right: 0px;
+ }
+ .QustionTitle {
+     /*min-height: 40px;*/
+     width: 100%;
+     padding-left: 5px;
+     padding-right: 5px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+ .QustionAnsRateText {
+     /*min-height: 20px;*/
+     font-size: 14px;
+ }
+ .QustionAnsRateStart {
+     /*min-height: 30px;*/
+ }
+ .dotdotdot {
+     display: inline-block!important;
+     vertical-align: middle!important;
+     line-height: inherit;
+ }
+ .qus-rating {
+     display: inline-block!important;
+     vertical-align: middle!important;
+     line-height: normal;
+ }
+ .LikeIcon {
+     width: 57px;
+     height: 48px;
+     margin-top: 2%;
+     line-height: 57px;
+     text-align: center;
+     vertical-align: middle;
+     display: inline-block;
+     border-radius: 3px;
+     border: 1px solid #ccc;
+     color: #797979;
+     cursor: pointer;
+ }
+ .unlikeIcon {
+     width: 57px;
+     height: 48px;
+     margin-top: 2%;
+     line-height: 57px;
+     text-align: center;
+     vertical-align: middle;
+     display: inline-block;
+     border-radius: 3px;
+     border: 1px solid #ccc;
+     transform: scaleX(-1);
+     margin-left: 2%;
+     color: #797979;
+     cursor: pointer;
+ }
+ .Header-area{
+     height: auto;padding: 0px;
+ }
+ .Topheader{
+     padding:0px;
+ }
+ .TopDefultheade{
+     min-height: 40px;border-radius: 0px;background-color: #114b9f;margin-bottom: 0px;
+ }
+ .TopDefultheadeChild{
+     min-height: 5px;border-radius: 0px;background-color: #f05922;margin-bottom: 0px;
+ }
+ .headermainleftpart{
+     padding: 0px;
+     /*padding-top: 3%;*/
+/*     margin-top: 1.5%;
+    margin-bottom: 0.5%;*/
+ }
+ .logoimg{
+     padding-top: 15%;
+    max-height: 80%;
+    max-width: 70%;
+ }
+ .InterestText{
+     padding-top: 4%;
+     text-align: right;
+ }
+ .applicantHeader{
+     padding-top:1.5%;
+    padding-bottom: 0.5%;
+ }
+ .HeaderApplicantName{
+     font-size: 4vmin;color:#333333;
+ }
+ .position{
+     font-size: 2vmin;color:#333333;
+ }
+ .TextAverageStarsMain{
+     padding-top: 1%;
+     vertical-align: middle;
+     padding-bottom:1%;
+ }
+ .qusstart{
+     padding-top: 1%;
+ }
+ .Qustion-area{
+     border-right: 1px solid #eee;
+ }
+ .qusPanelContent{
+     padding-left: 5px;
+ }
+ #qusPanelContent{
+     overflow-x: auto;
+ }
+ .QustionAnsRateText{
+     font-size:14px;color: #333333;padding-left: 5px; padding-right: 3px;
+ }
+ .QustionAnsRateStart{
+     padding-left: 2px; padding-right: 0px;
+ }
+ .Video-area{
+     border-top: 1px solid #eee;
+     padding: 0px;
+ }
+ .Average-rating{
+     display: inline-block;
+     padding-left: 5%;
+     vertical-align: middle;
+ }
+ .Interestmain{
+     padding-top: 9%;
+ }
+ 
+div::-webkit-scrollbar {
+    width: 12px;
+}
+
+div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

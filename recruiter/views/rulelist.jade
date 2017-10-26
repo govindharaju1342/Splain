@@ -1,0 +1,21 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Rule Info
+          .col-lg-12.col-lg-offset-10
+            button.btn.btn-success.btn-sm.add-manage-button#adduserBut(type='button', onclick="gotoAddRule()") Add Rule
+          table.table.table-striped
+            thead
+              tr
+                th Rule Name 
+            tbody 
+              - var n = 0
+              each key in json    
+                tr
+                  td #{key.ruleName}  

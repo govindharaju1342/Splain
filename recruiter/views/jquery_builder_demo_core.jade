@@ -1,0 +1,101 @@
+extends layout
+              
+block body   
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .jumbotron
+          h3  <span style='color:#2da5ff'>Splain</span> Dashboard
+          br
+          br
+        //  p User #{user.username} Dashboard
+    .container.bs-docs-container
+        .row
+            //
+              Content
+              ===========================================
+            .col-md-9(role='main')             
+              section.bs-docs-section.clearfix
+                h1#basic.page-header Basic              
+                .col-md-12.col-lg-10.col-lg-offset-1
+                  #builder-basic          
+                  .btn-group
+                    button.btn.btn-warning.reset(data-target='basic') Reset              
+                    button.btn.btn-success.set-json(data-target='basic') Set rules         
+                    button.btn.btn-primary.parse-json(data-target='basic') Get rules
+              section.bs-docs-section.clearfix
+                h1#widgets.page-header Widgets             
+                .col-md-12.col-lg-10.col-lg-offset-1
+                    #builder-widgets          
+                    .btn-group
+                        button.btn.btn-warning.reset(data-target='widgets') Reset              
+                        button.btn.btn-success.set-json(data-target='widgets') Set rules         
+                        button.btn.btn-primary.parse-json(data-target='widgets') Get rules
+              section.bs-docs-section.clearfix
+                h1#plugins.page-header Plugins
+                .col-md-12.col-lg-10.col-lg-offset-1
+                #builder-plugins
+                .btn-group
+                  button.btn.btn-warning.reset(data-target='plugins') Reset
+                  button.btn.btn-success.set-json(data-target='plugins') Set rules
+                  button.btn.btn-primary.parse-json(data-target='plugins') Get rules                      
+              section.bs-docs-section.clearfix
+                h1#import_export.page-header Import/Export                      
+                .col-md-12.col-lg-10.col-lg-offset-1
+                #builder-import_export
+                .btn-group
+                  button.btn.btn-warning.reset(data-target='import_export') Reset
+                .btn-group
+                  button.btn.btn-success.set-sql(data-target='import_export') Set rules from SQL
+                  button.btn.btn-success.set-mongo(data-target='import_export') Set rules from MongoDB                
+                .btn-group
+                  button.btn.btn-primary.parse-sql(data-target='import_export' data-stmt="false") SQL
+                  button.btn.btn-primary.parse-sql(data-target='import_export' data-stmt='question_mark') SQL statement(?)                  
+                  button.btn.btn-primary.parse-sql(data-target='import_export' data-stmt='named') SQL statement(named)                  
+                  button.btn.btn-primary.parse-mongo(data-target='import_export') MongoDB
+    style.
+        .code-popup {
+            max-height: 500px;
+        }
+    link(href='http://querybuilder.js.org/assets/css/docs.min.css', rel='stylesheet')      
+    script.
+        var baseurl = 'http://querybuilder.js.org'        
+    script(src='http://querybuilder.js.org/dist/jQuery-QueryBuilder/dist/js/query-builder.standalone.min.js')
+    script(src='http://querybuilder.js.org/dist/sql-parser/browser/sql-parser.js')          
+    script(src='http://querybuilder.js.org/assets/demo-basic.js')                              
+    //script(src='http://querybuilder.js.org/assets/demo-widgets.js')
+    script(src='/js/demo-widgets.js')
+    script(src='http://querybuilder.js.org/assets/demo-plugins.js')
+    script(src='http://querybuilder.js.org/assets/demo-import-export.js')
+    script(src='http://querybuilder.js.org/assets/demo.js')    
+    script(src='http://querybuilder.js.org/assets/js/docs.min.js')    
+    //Async scripts
+    //===========================================     
+    script.
+      trianglify('#0074d9', '#001f3f');  
+    script.
+      window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+      js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs")); 
+    #fb-root
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));  
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-28192323-3', 'mistic100.github.io');
+      ga('send', 'pageview');
+    

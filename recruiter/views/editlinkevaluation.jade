@@ -1,0 +1,221 @@
+extends layout
+
+block body 
+  .dashboard 
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm.bs-docs-container(role='main')
+          section.bs-docs-section.clearfix
+            legend Name of the Evaluation
+            .form-group
+              label(for="evaluationName") The name should be unique
+              input(
+                type='text'
+                class="form-control"
+                id='evaluationName'
+                value= '#{evJson[0].eval_name}'
+              )
+            legend Add/Edit Questions and Set the Sequence  
+            label(for="Question") Questions run from left to right and can be added and then rearranged by dragging and dropping into the correct order
+            .slider1
+                each key in json
+                  each key1 in key.objects_types
+                    .slide.question-carousel
+                      div
+                        span.question-header(id='#{key1.question_type}') #{key1.object_title}
+                        if key1.question_type == "welcome_video"
+                         div.question-body Welcome Video
+                         div.question-body No Applicant Response
+                        if key1.question_type == "introduction_video"
+                         div.question-body Job Introduction video
+                         div.question-body No Applicant Response
+                        if key1.question_type == "question_video"
+                         div.question-body Applicant to record video response
+                        if key1.question_type == "question_image"
+                         div.question-body Show a static image
+                         div.question-body Applicant to record video response
+                        if key1.question_type == "thanks_video"
+                         div.question-body End of evaluation video
+                         div.question-body No Applicant Response 
+            legend Sequence Begin >>
+            .slider2.sequence-order 
+               - var countId=0;
+               input(type='hidden' class="edit-question-json" )
+               input(type='hidden' class="key-value" )
+               each key in evJson 
+                 each key1 in key.questions  
+                   .sequence-order-div
+                     div 
+                       span.question-header #{key1.question_type}
+                       img.delete-drop-div(src='images/delete.png' title='Remove' onclick='editremoveDropedDiv(this)') 
+                       .sequence-order-edit-value  
+                          input(type='hidden' class="edit-question-key" value= '#{countId}' ) 
+                          - countId++; 
+                          input(type='hidden' class="edit-question-title" value= '#{key1.title}')
+                          input(type='hidden' class="edit-question-type" value= '#{key1.question_type}')
+                          input(type='hidden' class="edit-question-url" value= '#{key1.question_url}')
+                          input(type='hidden' class="edit-image-url" value= '#{key1.image_url}')
+                          input(type='hidden' class="edit-answer-type" value= '#{key1.answer_type}')
+                          input(type='hidden' class="edit-repeats-allowed" value= '#{key1.repeats_allowed}')
+                          input(type='hidden' class="edit-answer-time-limit" value= '#{key1.answer_time_limit}')
+                       .sequence-order-edit-link.edit
+                          div.edit-header #{key1.title}
+                          button.btn.btn-success.btn-sm.edit-sequence-but(data-toggle='modal' onclick='getEditEvalutionvalue(this)' data-target='#myModal') Edit
+            legend Set the Rule
+            label(for="Rule") This will let system know the condition(s) that need to trigger the evalution
+            .col-md-12
+              #builder-basic
+              .btn-group
+      div(align="center")
+        //- input(
+        //-     type='hidden'
+        //-     class="key-value"
+        //-     value='#{evJson.rule[0]._id["$oid"]}'
+        //-     )
+        button.btn.btn-success.btn-sm.submit-butt.link-submit(type='button', onclick="queryEditlinkEvRuleSubmit()") SUBMIT
+        button.btn.btn-warning.btn-sm.submit-butt.link-submit.set-json(data-target='basic') RESET
+  .modal.fade#myModal(role="dialog")
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          button.close(data-dismiss="modal")&times;
+          h4.modal-title Question
+        .modal-body
+          table.table-responsive.evaluation-popup-table
+            tr
+                td
+                  label(for="Qustion Title") Title 
+                  input(type='hidden' id="edit-question-obj-key" value="edit")
+                  input(type='hidden' id="edit-question-obj-id" )
+                  input(type='hidden' id="edit-question-obj-json" )
+                td
+                  input(
+                    type='text'
+                    class="form-control"
+                    id='qustionTitle'
+                  )
+              tr
+                td
+                  label(for="qustionType") Type
+                td
+                  select.form-control.question_type#questionType(disabled="disabled")
+                    option welcome_video
+                    option introduction_video
+                    option question_video
+                    option question_image
+                    option thanks_video
+              tr
+                td
+                  label(for="qustionURL") Question URL
+                td
+                  select.form-control#questionSource(onchange="checkQuestionurl(this)")
+                    option Provide URL
+                    option Record Now 
+                    option Upload Video
+              tr.questionTypeRow#questionProvideURL
+                td
+                  label(for="qustionURLType") Question URL
+                td
+                  input(
+                    type='text'
+                    class="form-control"
+                    id='qustionURLtext'
+                    value='https://s3-us-west-2.amazonaws.com/splain-example/DemoQuestion1_CustomerSvc.mp4'
+                  )
+              tr.questionUploadVideo#questionUploadVideo
+                td
+                  label(for="qustionURLType") Upload Video
+                td
+                  div.fileinput.fileinput-new(data-provides='fileinput')
+                    span.btn.btn-default.btn-file.file-upload-btn
+                      span.file-upload-span Choose file
+                      input(type='file', onchange='getFilename(this)')
+                    span.fileinput-filename
+                    span.fileinput-new.file-input-name   No file chosen
+              tr.answertimeLimit
+                td
+                  label(for="answerType") Answer Type
+                td
+                  select.form-control#answerType
+                    option Video
+                    option Text
+              tr
+                td
+                  label(for="repeatsType") Repeats Allowed
+                td
+                  input#quesionRepeats(
+                   type='checkbox'
+                   name='Repeats'
+                  )
+              tr.answertimeLimit
+                td
+                  label(for="answer_time_limit") Answer Time Limit
+                td
+                  input#answertimeLimit(
+                   type='text'
+                   class="form-control"
+                 )
+               
+        .modal-footer
+          button.btn.btn-success(onclick="editCreateQustionjson(this)", data-dismiss="modal") Save
+          button.btn.btn-danger(data-dismiss="modal") Close
+  style.
+      .code-popup {
+          max-height: 500px;
+      }
+      .btn-success{
+        margin-right:20px;
+      }
+  link(href='http://querybuilder.js.org/assets/css/docs.min.css', rel='stylesheet')
+  script(src='js/jquery/jquery.bxslider.min.js')
+  script(src='js/src/question-carousel.js')
+  link(href='css/jquery.bxslider.css', rel='stylesheet')
+  script.
+      var baseurl = 'http://querybuilder.js.org'
+  script(src='http://querybuilder.js.org/dist/jQuery-QueryBuilder/dist/js/query-builder.standalone.min.js')
+  script(src='http://querybuilder.js.org/assets/demo.js')
+  script. 
+    var ruleJson =!{JSON.stringify(ruleJson)};
+    var evJson  =!{JSON.stringify(evJson)};
+    $(".key-value").val(evJson[0]._id["$oid"]);
+    var rules_basic =!{JSON.stringify(evJson[0].rule)};
+    rules_basic=JSON.parse(rules_basic) ; 
+    //- console.log(rules_basic.rules[0].id);
+    //rules_basic=JSON.parse(rules_basic) ;
+    //- console.log(rules_basic);
+    // console.log(ruleJson);
+    var queryBuilderJson =[];
+    $.each(ruleJson,function(key,val){
+      item = {};
+      itemTest= {};
+      item ["id"] = ruleJson[key]._id["$oid"];
+      item ["label"] = ruleJson[key].ruleName;
+      item ["type"] = 'string'; 
+    
+      //- if(ruleJson[key].operator!=undefined){
+      //-   item ["operators"]=[];
+      //- }
+      if(ruleJson[key].operator!=undefined){ 
+       item ["operators"]=[];
+       for(var i=0;i<ruleJson[key].operator.length;i++){
+         ruleJson[key].operator[i]=ruleJson[key].operator[i].replace(/ /g, '_');
+         ruleJson[key].operator[i]=ruleJson[key].operator[i].toLowerCase();
+          item ["operators"].push(ruleJson[key].operator[i]);
+        } 
+       }
+       queryBuilderJson.push(item);
+       
+    });
+    //- console.log(queryBuilderJson); 
+    evaluationjsonObj=!{JSON.stringify(evJson[0].questions)};
+    console.log(queryBuilderJson); 
+    $(".edit-question-json").val(JSON.stringify(evaluationjsonObj));
+    $("#edit-question-obj-json").val(JSON.stringify(evaluationjsonObj)); 
+    $('#builder-basic').queryBuilder({
+      plugins: ['bt-tooltip-errors'], 
+      filters: queryBuilderJson,
+      rules: rules_basic
+    });
+  

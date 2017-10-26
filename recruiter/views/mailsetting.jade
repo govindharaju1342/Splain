@@ -1,0 +1,33 @@
+extends layout 
+
+block body
+ .dashboard
+  .row
+    #nav-container.col-lg-2
+     include leftnavigation.jade
+    #data-container.col-lg-10
+      .well-nm 
+        .adduser.well-nm
+          form.bs-example.form-horizontal(method='post', action='')
+            fieldset
+              legend  E-mail Settings
+              .form-group
+                label.col-lg-1.control-label(for='from') From
+                .col-lg-8
+                  input#xxx.form-control(name='from', type='e-mail', value=from)
+              .form-group
+                label.col-lg-1.control-label(for='sub') Subject
+                .col-lg-8
+                  input#xxx.form-control(name='sub', type='text', value=sub)
+              .form-group
+                label.col-lg-1.control-label(for='body') Body
+                .col-lg-8
+                  textarea#tinyTextarea.form-control(name='body', type='text', value=body) #{body} 
+              .form-group
+                .col-lg-10.col-lg-offset-4
+                  input.btn.btn-success(type='submit', value='Submit')
+      
+ script(src='http://cdn.tinymce.com/4/tinymce.min.js')
+ script.
+      tinymce.init({ selector:'textarea' });                         
+   

@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Candidate Results Evaluation
+    link(type='text/css', href='../libs/bootstrap-3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(type='text/css', href='/results/stylesheets/custom.css', rel='stylesheet')
+    link(type='text/css', href='/results/libs/font-awesome-4.6.3/css/font-awesome.min.css', rel='stylesheet')
+    link(type='text/css', href='/results/libs/star-rating-svg.css', rel='stylesheet')        
+  body
+    .container-fluid
+      .Header-area.col-sm-12.col-md-12.col-xs-12.col-lg-12
+        .col-sm-12.col-md-12.col-xs-12.col-lg-12.Topheader
+          .TopDefultheade
+          .TopDefultheadeChild
+        .col-sm-12.col-md-12.col-xs-12.col-lg-12.headermain
+          .col-sm-3.col-md-3.col-xs-5.col-lg-2.headermainleftpart
+            img.logoimg.center-block(src='')
+          .col-sm-4.col-md-3.col-xs-7.col-lg-4.headermainleftpart
+            .Interestmain
+              .col-sm-4.col-md-4.col-xs-6.col-lg-3.InterestText Interest:
+              .LikeIcon
+                i.fa.fa-thumbs-up.fa-3x.likefont(aria-hidden='true')
+              .unlikeIcon
+                i.fa.fa-thumbs-down.fa-3x.unlikefont(aria-hidden='true')
+          .col-sm-5.col-md-6.col-xs-12.col-lg-4.applicantHeader
+            .col-sm-12.col-md-12.col-xs-6.col-lg-12.applicantHeadermain
+              .col-sm-12.col-md-12.col-xs-12.col-lg-12.text-center.HeaderApplicantName
+              .col-sm-12.col-md-12.col-xs-12.col-lg-12.text-center.position
+            .col-sm-12.col-md-12.col-xs-6.col-lg-12.text-center.TextAverageStarsMain
+              .Average-rating
+      .Qustion-area.col-sm-12.col-md-12.col-xs-12.col-lg-12
+        .qusPanelContent
+          #qusPanelContent
+      .Video-area.col-sm-12.col-md-12.col-xs-12.col-lg-12(style='display:none')
+        .Qustion-video
+          video#video(controls='')
+        .footer Submitted video
+      #postedvalues(style='display:none;')
+        company #{companyid}
+        job #{jobid}
+    script(src='/results/libs/jQuery-2.1.4/jquery.min.js' type='text/javascript')
+    script(src='/results/config/client_settings.js' type='text/javascript')
+    script(src='/results/javascripts/custom.js' type='text/javascript')
+    script(src='/results/libs/jquery.dotdotdot-1.2.1.js' type='text/javascript')
+    script(src='/results/libs/bootstrap-3.3.7/js/bootstrap.min.js' type='text/javascript')
+    script(src='/results/libs/jquery.star-rating-svg.js' type='text/javascript')     

@@ -1,0 +1,45 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Create/Add Rule 
+          .form-group
+            label(for="evaluationName") Rule Name
+            input(
+              type='text'
+              class="form-control"
+              id='ruleName' 
+            ) 
+            label(for="operators") Operators
+            select(multiple).form-control#ruleOperators 
+              option(value='equal') equal
+              option(value='not_equal') not_equal
+              option(value='in') in
+              option(value='not_in') not_in
+              option(value='less') less
+              option(value='less_or_equal') less_or_equal
+              option(value='greater') greater
+              option(value='greater_or_equal') greater_or_equal
+              option(value='between') between
+              option(value='not_between') not_between
+              option(value='begins_with') begins_with
+              option(value='not_begins_with') not_begins_with
+              option(value='contains') contains
+              option(value='not_contains') not_contains
+              option(value='ends_with') ends_with 
+              option(value='not_ends_with') not_ends_with
+              option(value='is_empty') is_empty
+              option(value='is_not_empty') is_not_empty
+              option(value='is_null') is_null
+              option(value='is_not_null') is_not_null 
+            
+           
+          button.btn.btn-success.btn-sm.submit-butt(type='button', onclick="submitRule()") SUBMIT 
+                
+       
+                  

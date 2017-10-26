@@ -1,0 +1,456 @@
+label {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+html, body{
+    margin: 0;
+
+    padding: 0;
+
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #394263;
+    font-size: 13px;
+    background-color: white;
+    /*min-width: 400px;*/
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: relative;
+    min-height: 0px;
+    margin-bottom: 0px;  
+}
+.mckessonLogo{
+    padding: 15% 0% 0% 0%;
+    margin: 0% 16.75%;
+}
+.timeCountdown{   
+    padding-top: 10%;    
+}
+.progressCountdown{
+    padding-top: 10%
+}
+
+.countdownCircle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;    
+    background-color: lightblue;
+    margin-left: 25%;
+}
+
+#header{
+    height:40px;
+    background-color: #114b9f;
+    border-bottom: 5px solid #f05922;padding:0px;
+}
+#subscribers{
+    padding: 0px;
+    overflow: hidden;
+    min-width: 400px;
+}
+
+#recordingdelay p {
+    font-size: 18px;
+    font-weight: bold;
+    color:red;
+}    
+
+@media(min-width:768px) and (max-width:992px){
+    .mckessonLogo{
+        padding: 15% 0% 0% 0%;
+        /*margin: 0% 23%;*/    
+    }
+    .loader4 {
+        width:150px;
+    }    
+    .loader3 {
+        width:150px;
+    }
+    .loader2 {
+       width:150px;
+    }
+    .timeCountdown{
+        padding-top: 15%;
+        padding-left: 0%;
+        padding-right: 0%;            
+    }
+    .progressCountdown{
+        padding-top: 15%;
+        padding-left: 0%;
+        padding-right: 0%;   
+    }
+        
+    #recordingdelay p {
+        font-size: 18px !important;
+        font-weight: bold;
+        color:red;
+    }    
+}
+@media (max-width:767px){
+    
+    html, body{
+        margin: 0;
+
+        padding: 0;
+
+        min-width: 100%;
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 100%;
+        height: 100%;
+        max-height: 100%;
+    }
+    
+    .mckessonLogo{
+        padding: 5% 0% 0% 0%;
+        margin: 0% 23%;
+    }
+    .timeCountdown{
+        padding-top: 5%
+    }
+    .progressCountdown{
+        padding-top: 5%
+    } 
+/*    #main-div,#subscribers,#leftDiv{
+        height:auto;
+    }*/
+    #videoDiv{
+        padding-top: 0%
+    }
+    #leftDiv{
+        height:50%;
+        width:100%;
+        min-width: 400px;
+        max-height:350px;
+    }    
+    #subscribers {
+        height:50%;
+        width:100%;
+    }
+    
+    .OT_video-element {
+        height:50%;
+        width:auto;
+    }
+        
+    #recordingdelay p{
+        font-size: 12px !important;
+        font-weight: bold;
+        color:red;
+    }
+    
+    .loader4 {
+        width:100px;
+        height:100px;
+    }    
+    .loader3{
+        width:150px;
+        height:150px;
+    }
+    .loader2{
+       width:150px;
+       height:150px;
+    }
+    
+}
+
+@media (max-width:960px){
+    #leftDiv{
+        height:50%;       
+        min-width: 150px;
+    }
+    .progressCountdown{
+        padding-top: 5%
+    }
+    
+    #recordingdelay p {
+        font-size: 16px !important;
+        font-weight: bold;
+        color:red;
+    }
+} 
+
+
+#subscribers .fixed-width-height {
+    position: relative;
+}
+#subscribers .fixed-width-height video {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:auto;
+}
+.fixed-width-height img {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:auto;
+}
+
+#selfvideo {
+    z-index:999;
+    width:auto;
+    height:150px;
+    position:absolute;
+    float:left;
+    top:1.5%;
+    left:1.5%;
+    object-fit:cover;  
+}
+
+			
+#controlsButton {
+    background: #FFF;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    background-color:#363636;
+    position: absolute;
+}
+
+#controlsButton .next {
+    background-color: #dddddd;
+    border: 1px solid #797979;
+    border-radius: 5px;    
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    text-decoration: none;
+    width: 80px;    
+}
+
+#controlsButton .next:before{
+    background-color: #dddddd;
+    border: 1px solid #797979;        
+    border-bottom: none;
+    border-left:none;           
+    border-top-right-radius: 5px;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 66px;
+    position: absolute;
+    top: 4px;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 21px;
+}
+
+#controlsButton .next button {
+    color: #777777;
+    background: none;
+    border: 1px solid #797979;
+    padding: 0px 6px;
+    border-radius: 5px;
+    border-right:  none;
+    font-weight: bold;
+    position: relative;
+    width: 80px;
+    height: 28px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+#controlsButton .replay {
+    background-color: #dddddd;
+    border: 1px solid #797979;
+    border-radius: 5px;        
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    text-decoration: none;
+    width: 80px;        
+}
+#controlsButton .replay:before{
+    background-color:  #dddddd;
+    border: 1px solid #797979;        
+    border-bottom-left-radius: 5px;
+    border-top:none;
+    border-right:none;      
+    content: '';
+    display: block;
+    height: 20px;
+    right: 66px;    
+    position: absolute;
+    top: 4px;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 21px;
+    padding-left: 5px;
+}
+
+#controlsButton .replay button {
+    color: #777777;
+    background: none;
+    padding: 0px 6px;
+    /*border: none;*/
+    border: 1px solid #797979;
+    border-radius: 5px;
+    border-left: none;
+    font-weight: bold;
+    position: relative;
+    width: 80px;
+    height: 28px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+#controlsButton .done {
+    background-color: #dddddd;
+    border: 1px solid #797979;
+    border-radius: 5px;        
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    text-decoration: none;
+    width: 80px;
+}
+
+#controlsButton .done button {
+    color: #777777;
+    padding: 0px 6px;
+    background: none;
+    border: 1px solid #797979;
+    border-radius: 5px;
+    font-weight: bold;
+    position: relative;
+    width: 80px;
+    height: 28px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+
+#controlsButton a{
+    background: #dddddd;
+    color:#777777;
+    border: none;
+    border-radius: 5px;        
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    text-decoration: none;
+    width: 80px;
+    margin-right: 16px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 13px;
+}
+#controlsButton .replay.changed:before, #controlsButton .done.changed:before, #controlsButton .next.changed:before {
+    background: #0096d3;    
+}
+
+button[enabled], button[enabled], button[enabled]{
+    background: #0096d3;
+    color:#ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[disabled], button[disabled], button[disabled]{
+    background: #dddddd;
+    color:#777777;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.publisher{ 
+    z-index: 999;
+    position: absolute;
+    left: 26%;
+    top: 6.5%;
+} 
+#publisher {
+    width: 100%;
+    height: 100%;        
+    z-index: 9999999;
+    position: absolute;
+    left: 0%;
+    top: 0%;;
+}
+/*#publisher video {
+        position:absolute;
+        top:0;
+        left:0;
+        height:auto;
+        width:100%;
+}*/
+/*.eachQuestion{         
+        z-index: 99999999999999999;
+        position: absolute;
+        left: 85%;
+        top: 8.5%;
+        font-size: 36px;
+        font-weight:bold;
+        color: red;
+}*/
+.days {
+    display:none;
+    float: left;
+    margin-right: 4px;
+}
+
+.hours {
+    display:none;
+  float: left;
+}
+
+.minutes {
+        display:none;
+  float: left;
+}
+
+.seconds {
+  float: left;
+}
+
+.clearDiv {
+  clear: both;
+}
+
+.OT_widget-container, .OT_publisher.OT_mirrored .OT_video-element { 
+    background-color:white !important;
+}
+
+#notification, #finalnotification {
+	position:absolute; 
+	bottom:70px;
+	left:50%;
+	z-index:99999999999;
+	display:none;
+	transform: translateX(-50%);
+	color: #31708f;
+	background-color: #d9edf7;
+	padding:10px 25px 5px;
+	border: 2px solid #bce8f1;
+	border-radius: 10px;
+	box-shadow: 0 6px 28px 0 rgba(0,0,0,.2);
+}

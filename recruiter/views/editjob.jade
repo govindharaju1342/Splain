@@ -1,0 +1,46 @@
+extends layout
+
+block body
+     .dashboard
+      .row
+        #nav-container.col-lg-2
+         include leftnavigation.jade
+        #data-container.col-lg-10
+          .well-nm
+            .container
+              .adduser.well-nm
+                form.bs-example.form-horizontal(method='post', action='')
+                  fieldset
+                    legend  Requisition Profile
+                    .form-group
+                      label.col-lg-1.control-label(for='reqtitle') Requisition Job Title
+                      .col-lg-4
+                        input#xxx.form-control(name='id', type='hidden', value=id)
+                        input#xxx.form-control(name='evalid', type='hidden', value=evalid)
+                        input#xxx.form-control(name='applicant_url', type='hidden', value=applicant_url)
+                        input#xxx.form-control(name='emailsent', type='hidden', value=emailsent)
+                        input#xxx.form-control(name='reqtitle', type='text', value=reqtitle readonly)
+                    .form-group
+                      label.col-lg-1.control-label(for='reqnumber') Requisition number
+                      .col-lg-4
+                        input#xxx.form-control(name='reqnumber', type='text', value=reqnumber readonly)
+                    .form-group
+                      label.col-lg-1.control-label(for='recruiter') Recruiter Name
+                      .col-lg-4
+                        input#xxx.form-control(name='recruiter', type='text', value=recruiter)
+                    .form-group
+                      label.col-lg-1.control-label(for='applname') Applicant First Name
+                      .col-lg-4
+                        input#xxx.form-control(name='applname', type='text', value=applname)
+                    .form-group
+                      label.col-lg-1.control-label(for='applemail') Applicant E-mail
+                      .col-lg-4
+                        input#xxx.form-control(name='curr_applemail', type='hidden', value=curr_applemail)
+                        input#xxx.form-control(name='applemail', type='e-mail', value=applemail)
+                    .form-group
+                      .col-lg-10.col-lg-offset-2
+                        input.btn.btn-success(type='submit', name='action', value='save')
+                    .form-group
+                      .col-lg-10.col-lg-offset-2
+                        input.btn.btn-success(type='submit', name='act1', value='resend')
+

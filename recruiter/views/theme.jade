@@ -1,0 +1,30 @@
+extends layout
+
+block body
+     .dashboard
+      .row
+        #nav-container.col-lg-2
+         include leftnavigation.jade
+        #data-container.col-lg-10
+          .well-nm
+            .container
+              .adduser.well-nm
+                form.bs-example.form-horizontal(method='post', action='')
+                  fieldset
+                    legend Theme Settings
+                    .form-group
+                      label.col-lg-1.control-label(for='bgcolor') Background Color
+                      .col-lg-4
+                        input#xxx.form-control(name='bgcolor', type='color', value=bgcolor)
+                    .form-group
+                      label.col-lg-1.control-label(for='accolor') Accent Color
+                      .col-lg-4
+                        input#xxx.form-control(name='accolor', type='color', value=accolor)
+                    .form-group
+                      label.col-lg-1.control-label(for='logo') Logo URL
+                      .col-lg-4
+                        input#xxx.form-control(name='logo', type='url', value=logo)
+                    .form-group
+                      .col-lg-10.col-lg-offset-4
+                        input.btn.btn-success(type='submit', value='Submit')
+

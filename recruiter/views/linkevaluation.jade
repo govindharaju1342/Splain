@@ -1,0 +1,39 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Link Evaluation
+          .form-group
+            label(for="evaluationName") Select the evaluation to link
+            select.form-control#linkEvaluationType
+              option(value='') -- Select --
+              each key in evJson
+                  option(value='#{key._id["$oid"]}') #{key.eval_name}
+            legend Create the Rule 
+            table.table.table-striped.table-hover
+              thead 
+                tr 
+                  th Rule 
+                  th Note
+                  th Action
+              tbody
+                each key in ruleJson
+                  tr( id= '#{key._id["$oid"]}')
+                    td #{key.ruleName}
+                    td 
+                      input(
+                        type='text'
+                        class="form-control rule-note"  
+                      )
+                    td
+                      button.btn.btn-primary.btn-xs.submit-butt(type='button', onclick="linkEvRule(this)") Link 
+          div(align="center") 
+            button.btn.btn-success.btn-sm.submit-butt.link-submit(type='button', onclick="linkEvRuleSubmit()") SUBMIT 
+                
+       
+                  

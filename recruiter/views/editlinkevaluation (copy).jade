@@ -1,0 +1,64 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Edit Linked Evaluation
+          .form-group
+            label(for="evaluationName") Evaluation Name :  #{evJson[0].eval_name}   
+            div
+              ul.nav.nav-tabs.link-tab
+                li.active(onclick="gotolinkevaTab(this)") 
+                  a Link
+                li(onclick="gotounlinkevaTab(this)")  
+                  a Unlink
+            div.link-eva-div       
+              table.table.table-striped.table-hover
+                thead 
+                  tr 
+                    th Rule 
+                    th Note
+                    th Action
+                tbody
+                  -var array = []
+                  each key in json
+                    tr( id= '#{key._id["$oid"]}')
+                      -array[key._id["$oid"]]=key.ruleName;
+                      td #{key.ruleName}
+                      td 
+                        input(
+                          type='text'
+                          class="form-control rule-note"  
+                          )
+                      td
+                        button.btn.btn-primary.btn-xs.submit-butt(type='button', onclick="linkEvRule(this)") Link
+            div.unlink-eva-div       
+              table.table.table-striped.table-hover
+                thead 
+                  tr 
+                    th Rule 
+                    th Note
+                    th Action
+                tbody
+                  each key in linkedJson 
+                    each key1 in key.rule
+                      - var tempId = key1.ruleId
+                      tr( id= '#{key._id["$oid"]}') 
+                        td= array[tempId]
+                        td 
+                          input(
+                            type='text'
+                            class="form-control rule-note"
+                            value= '#{key1.note}'  
+                            )
+                        td
+                          button.btn.btn-danger.btn-xs.submit-butt(type='button', onclick="linkEvRule(this)") Unlink 
+          div(align="center") 
+            button.btn.btn-success.btn-sm.submit-butt.link-submit(type='button', onclick="linkEvRuleSubmit()") UPDATE 
+                
+       
+                  

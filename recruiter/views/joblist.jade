@@ -1,0 +1,31 @@
+extends layout
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container 
+        .adduser.well-nm 
+          legend Requisition Profiles
+          .col-lg-12.col-lg-offset-10
+            button.btn.btn-success.btn-sm.add-manage-button#adduserBut(type='button', onclick="gotoAddjob()") Add Job
+          table.table.table-striped
+            thead
+              tr
+                th Req Title
+                th Applicant email
+                th Req Number
+                th Eval Status
+                th Action
+            tbody
+              - var n = 0
+              each key in json
+                tr
+                  td #{key.reqtitle}
+                  td #{key.applemail}
+                  td #{key.reqnumber}
+                  td #{key.evalresulturl}
+                  td.actiontd(onclick="gotoEditjob('#{key._id['$oid']}')")
+                    span.glyphicon.glyphicon-pencil.cursor(title='Edit Job')
+

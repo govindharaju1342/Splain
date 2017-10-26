@@ -1,0 +1,116 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Create/Add Evaluation 
+          .form-group
+            label(for="evaluationName") Evaluation Name
+            input(
+              type='text'
+              class="form-control"
+              id='evaluationName' 
+            )
+          legend Question 
+          .slider1
+              each key in json
+                each key1 in key.objects_types
+                  .slide.question-carousel 
+                    div
+                      span.question-header #{key1.object_title}
+                      if key1.question_type != "Introduction"
+                       div.question-body Question Type : #{key1.question_type}
+                       div.question-body Answer Type : #{key1.answer_type}
+                      if key1.question_type == "Introduction"
+                       div.question-body Introduction Video
+          legend Sequence Begin >>
+          .slider2.sequence-order
+          .col-lg-12(align="center")
+            button.btn.btn-success.btn-sm.submit-butt(type='button', onclick="submitEvaluation()") SUBMIT
+  .modal.fade#myModal(role="dialog")
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          button.close(data-dismiss="modal")&times;
+          h4.modal-title Question
+        .modal-body
+          table.table-responsive.evaluation-popup-table
+            tr
+              td 
+                label(for="Qustion Title") Title
+              td 
+                input(
+                  type='text'
+                  class="form-control"
+                  id='qustionTitle' 
+                )
+            tr
+              td
+                label(for="qustionType") Question Type
+              td 
+                select.form-control#questionType
+                  option Video
+                  option Image
+            tr
+              td
+                label(for="qustionURL") Source
+              td
+                select.form-control#questionType(onchange="checkQuestionurl(this)")
+                  option Record Now
+                  option Provide URL
+                  option Upload Video
+                
+            tr.questionTypeRow#questionProvideURL
+              td 
+                label(for="qustionURLType") Video/Image URL
+              td
+                input(
+                  type='text'
+                  class="form-control"
+                  id='qustionURLtext' 
+                ) 
+            tr.questionTypeRow#questionUploadVideo
+              td 
+                label(for="qustionURLType") Upload Video
+              td
+                div.fileinput.fileinput-new(data-provides='fileinput')
+                  span.btn.btn-default.btn-file.file-upload-btn
+                    span.file-upload-span Choose file 
+                    input(type='file', onchange='getFilename(this)')
+                  span.fileinput-filename
+                  span.fileinput-new.file-input-name   No file chosen
+            tr
+              td
+                label(for="answerType") Answer Type
+              td 
+                select.form-control#answerType
+                  option Video
+            tr
+              td
+                label(for="repeatsType") Repeats Allowed
+              td 
+                input#quesionRepeats(
+                 type='checkbox' 
+                 name='Repeats'
+                )
+            tr
+              td
+                label(for="answer_time_limit") Answer Time Limit
+              td 
+                input#answertimeLimit(
+                 type='text'
+                 class="form-control" 
+               )
+           
+                
+        .modal-footer
+          button.btn.btn-success(onclick="createQustionjson()", data-dismiss="modal") Save
+          button.btn.btn-danger(data-dismiss="modal") Close
+                
+  script(src='/js/jquery/jquery.bxslider.min.js') 
+  script(src='/js/src/question-carousel.js')
+  link(href='/css/jquery.bxslider.css', rel='stylesheet')    

@@ -1,0 +1,47 @@
+extends layout
+
+block body 
+
+  - var A=custom.admin
+  if A=="\"1\"" 
+    .dashboard
+      .row
+        .col-lg-2#nav-container
+          .nav-arrow 
+          ul.nav.nav-pills.nav-stacked.affix.side-nav
+            li
+              a.cursor.active(href='/manageuser') Manage User
+            li
+              a.cursor Evaluation List
+            li
+              a.cursor Create New Evaluation
+            li
+              a.cursor Link Evaluation
+            li
+              a.cursor Set Outgoing Email
+        .col-lg-10#data-container
+          .well-nm
+            nav.navbar.navbar-default
+              .container-fluid 
+                ul.nav.navbar-nav
+                  li 
+                    a(href='/adduser',role='button') Add Users
+                  li 
+                    a(href='/viewuser',role='button') View Users
+                  li
+                    a(href='/removeuser',role='button') Remove Users 
+             if user
+                //p   <span style='color:#2da5ff'>ZOOM</span> user : #{user.username} and : #{custom.dbname} and admin #{custom.admin}
+             else 
+               p.bigbutton
+                 a.btn.btn-lg.btn-warning(href='/register', role='button') Register  
+                 dev &nbsp;|&nbsp;
+                 a.btn.btn-lg.btn-info(href='/login',role='button') Sign In  
+  else
+   p NORMAL USER XD 
+   p.lead.
+      <br/>
+      <br/> 
+      <br/>
+
+  

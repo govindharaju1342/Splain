@@ -1,0 +1,30 @@
+extends layout
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container 
+        .adduser.well-nm 
+          legend User Info
+          .col-lg-12.col-lg-offset-10
+            button.btn.btn-success.btn-sm.add-manage-button#adduserBut(type='button', onclick="gotoAdduser()") Add User
+          table.table.table-striped
+            thead
+              tr
+                th User Name
+                th Email
+                th Admin
+                th Action
+            tbody
+              tr
+                td user 1
+                td user@user.com
+                td Yes
+                td
+                  a(href='/edituser')
+                    span.glyphicon.glyphicon-pencil.cursor(title='Edit User')
+                  a(href='/removeuser')
+                    span.glyphicon.glyphicon-remove(title='Delete User')
+             

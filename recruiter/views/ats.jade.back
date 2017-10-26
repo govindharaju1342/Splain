@@ -1,0 +1,40 @@
+extends layout
+
+block body
+     .dashboard
+      .row
+        #nav-container.col-lg-2
+         include leftnavigation.jade
+        #data-container.col-lg-10
+          .well-nm
+            .container
+              .adduser.well-nm
+                form.bs-example.form-horizontal(method='post', action='')
+                  fieldset
+                    legend  Requisition Profile
+                    .form-group
+                      label.col-lg-1.control-label(for='reqtitle') Requisition Job Title
+                      .col-lg-4
+                        input#xxx.form-control(name='reqtitle', type='text', value=reqtitle)
+                    .form-group
+                      label.col-lg-1.control-label(for='reqnum') Requisition number
+                      .col-lg-4
+                        input#xxx.form-control(name='reqnum', type='text', value=reqnum)
+                    .form-group
+                      label.col-lg-1.control-label(for='recruiter') Recruiter Name
+                      .col-lg-4
+                        input#xxx.form-control(name='recruiter', type='text', value=recruiter)
+                    .form-group
+                      label.col-lg-1.control-label(for='applname') Applicant First Name
+                      .col-lg-4
+                        input#xxx.form-control(name='applname', type='text', value=applname)
+                    .form-group
+                      label.col-lg-1.control-label(for='applemail') Applicant E-mail
+                      .col-lg-4
+                        input#xxx.form-control(name='applemail', type='e-mail', value=applemail)
+                    .form-group
+                      .col-lg-10.col-lg-offset-2
+                        input.btn.btn-success(type='submit', name='but', value='Save')
+                      .col-lg-offset-3
+                        input.btn.btn-success(type='submit', name='but' value='Resend Email')
+

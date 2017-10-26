@@ -1,0 +1,132 @@
+extends layout 
+
+block body
+  .dashboard
+    .row
+      .col-lg-2#nav-container
+        include leftnavigation.jade
+      .col-lg-10#data-container
+        .well-nm  
+          legend Edit Evaluation 
+          .form-group  
+            label(for="evaluationName") Evaluation Name
+              //- | #{evJson[0].eval_name} 
+            input(
+              type='text'
+              class="form-control"
+              id='evaluationName'
+              value= '#{evJson[0].eval_name}' 
+            )
+          legend Question 
+          .slider1
+              each key in json
+                each key1 in key.objects_types
+                  .slide.question-carousel 
+                    div
+                      span.question-header #{key1.object_title} 
+                    div.question-body Question Type : #{key1.question_type} 
+                    div.question-body Answer Type : #{key1.answer_type} 
+          legend Sequence Begin1 >>
+          .slider2.sequence-order
+            each key in qusJson
+              each key1 in key.questions
+                .sequence-order-div
+                  div 
+                    span.question-header #{key1.title}
+                    img.delete-drop-div(src='images/delete.png' title='Remove' onclick='removeDropedDiv(this)') 
+                  .sequence-order-edit-value
+                    input(type='hidden' class="edit-question-type" value= '#{key1.question_type}')
+                    input(type='hidden' class="edit-question-url" value= '#{key1.question_url}')
+                    input(type='hidden' class="edit-image-url" value= '#{key1.image_url}')
+                    input(type='hidden' class="edit-answer-type" value= '#{key1.answer_type}')
+                    input(type='hidden' class="edit-repeats-allowed" value= '#{key1.repeats_allowed}')
+                    input(type='hidden' class="edit-answer-time-limit" value= '#{key1.answer_time_limit}') 
+                  .sequence-order-edit-link 
+                    button.btn.btn-success.btn-sm(data-toggle='modal' onclick='getEditEvalutionvalue(this)' data-target='#myModal') Edit
+                    
+              
+          .col-lg-12(align="center")
+            button.btn.btn-success.btn-sm.submit-butt(type='button', onclick="submitEvaluation()") UPDATE
+  .modal.fade#myModal(role="dialog")
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          button.close(data-dismiss="modal")&times;
+          h4.modal-title Question
+        .modal-body
+          table.table-responsive.evaluation-popup-table
+            tr
+              td 
+                label(for="Qustion Title") Title
+              td 
+                input(
+                  type='text'
+                  class="form-control"
+                  id='qustionTitle' 
+                )
+            tr
+              td
+                label(for="qustionType") Question Type
+              td 
+                select.form-control#questionType
+                  option Video
+                  option Text
+            tr
+              td
+                label(for="qustionURL") Question URL
+              td
+                select.form-control#questionType(onchange="checkQuestionurl(this)")
+                  option Record Now
+                  option Provide URL
+                  option Upload Video
+            tr.questionTypeRow#questionProvideURL
+              td 
+                label(for="qustionURLType") Question URL
+              td
+                input(
+                  type='text'
+                  class="form-control"
+                  id='qustionURLtext' 
+                ) 
+            tr.questionTypeRow#questionUploadVideo
+              td 
+                label(for="qustionURLType") Upload Video
+              td
+                div.fileinput.fileinput-new(data-provides='fileinput')
+                  span.btn.btn-default.btn-file.file-upload-btn
+                    span.file-upload-span Choose file 
+                    input(type='file', onchange='getFilename(this)')
+                  span.fileinput-filename
+                  span.fileinput-new.file-input-name   No file chosen
+            tr
+              td
+                label(for="answerType") Answer Type
+              td 
+                select.form-control#answerType
+                  option Video
+                  option Text
+            tr
+              td
+                label(for="repeatsType") Repeats Allowed
+              td 
+                input#quesionRepeats(
+                 type='checkbox' 
+                 name='Repeats'
+                )
+            tr
+              td
+                label(for="answer_time_limit") Answer Time Limit
+              td 
+                input#answertimeLimit(
+                 type='text'
+                 class="form-control" 
+               )
+           
+                
+        .modal-footer
+          button.btn.btn-success(onclick="createQustionjson()", data-dismiss="modal") Save
+          button.btn.btn-danger(data-dismiss="modal") Close
+                
+  script(src='/js/jquery/jquery.bxslider.min.js') 
+  script(src='/js/src/question-carousel.js')
+  link(href='/css/jquery.bxslider.css', rel='stylesheet')    
